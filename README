@@ -1,0 +1,6 @@
+Installation:
+    Windows:
+        git clone https://github.com/juanjfonseca/dotvim.git vimfiles
+
+    Linux:
+        git clone https://github.com/juanjfonseca/dotvim.git .vim
