@@ -162,14 +162,16 @@ if has("gui_running")
     set guioptions-=T
     set guioptions-=m
 
-    " Colorscheam
-    set background=dark
-    silent! colorschem solarized
-
     set guicursor=n-v-c:block-Cursor-blinkon0
     set guicursor+=ve:ver35-Cursor
     set guicursor+=o:hor50-Cursor
     set guicursor+=i-ci:ver25-Cursor
     set guicursor+=r-cr:hor20-Cursor
     set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+
+    if has("win32")
+        set guifont=Courier_New:h10:cANSI
+    else
+        set guifont=Courier\ 10\ Pitch\ 10
+    endif
 endif
