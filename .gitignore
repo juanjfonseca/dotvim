@@ -1,7 +1,9 @@
 # files
 .netrwhist
+tags
 
 # directories
 keymap
 spell
 tmp
+doc
