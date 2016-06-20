@@ -26,6 +26,9 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+" Display line numbers
+set relativenumber
+
 " Store temporary files in a central spot {{{2
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp
