@@ -39,6 +39,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp
 nmap <silent> <leader>s :set spell!<CR>
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <CR> :silent :nohlsearch<CR>
+nmap <silent> <leader>h :set hlsearch!<CR>
 
 " Commands to quickly set >1 option in one go {{{2
 command! -nargs=* Wrap set wrap linebreak nolist
