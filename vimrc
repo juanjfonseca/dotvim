@@ -77,11 +77,12 @@ nnoremap <leader>f :<C-u>CtrlP<space>
 nnoremap <silent> <leader>m :<C-u>CtrlPMRU<cr>
 nnoremap <silent> <leader>b :<C-u>CtrlPBuffer<cr>
 
-" ctrlp-funky {{{3
-let g:ctrlp_extensions = ['funky']
-nnoremap <silent> <leader>fu :CtrlPFunky<cr>
-" narrow the list down with a word under cursor
-nnoremap <silent> <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
+" Cscope {{{2
+set cscopequickfix=c-,d-,i-,t-,e-
+" Next occurence
+nnoremap <leader>n :cn<CR>
+" Previous occurence
+nnoremap <leader>p :cp<CR>
 
 " Fix constant spelling mistakes {{{1
 iab teh       the
