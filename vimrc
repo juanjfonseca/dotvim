@@ -78,7 +78,7 @@ nnoremap <silent> <leader>m :<C-u>CtrlPMRU<cr>
 nnoremap <silent> <leader>b :<C-u>CtrlPBuffer<cr>
 
 " Cscope {{{2
-set cscopequickfix=c-,d-,i-,t-,e-
+set cscopequickfix=s-,c-,d-,i-,t-,e-
 " Next occurence
 nnoremap <leader>n :cn<CR>
 " Previous occurence
