@@ -38,3 +38,6 @@
 	path = bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
     ignore = dirty
+[submodule "bundle/cscope_map.vim"]
+	path = bundle/cscope_map.vim
+	url = https://github.com/wolfpython/cscope_map.vim.git

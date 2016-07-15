@@ -4,3 +4,7 @@ Installation:
 
     Linux:
         git clone https://github.com/juanjfonseca/dotvim.git .vim
+
+    Install submodules:
+        cd ~/.vim (or vimfiles)
+        git submodule update --init
