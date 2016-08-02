@@ -41,3 +41,6 @@
 [submodule "bundle/cscope_map.vim"]
 	path = bundle/cscope_map.vim
 	url = https://github.com/wolfpython/cscope_map.vim.git
+[submodule "bundle/vim-colors-solarized"]
+	path = bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

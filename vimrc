@@ -69,7 +69,7 @@ noremap <c-s> <ESC>:w<CR>
 " Tagbar {{{2
 nnoremap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_autoclose = 1 " Automatically close window when jumping to a tag.
-let g:tagbar_width = 50
+let g:tagbar_width = 70
 let g:tagbar_autoshowtag = 1 " Open the current tags fold to highlight the tag.
 
 " CtrlP {{{2
@@ -173,10 +173,10 @@ if has("gui_running")
     set guicursor+=i-ci:ver25-Cursor
     set guicursor+=r-cr:hor20-Cursor
     set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-
+    
     if has("win32")
-        set guifont=Courier_New:h10:cANSI
+        set guifont=Lucida_Console
     else
-        set guifont=Courier\ 10\ Pitch\ 10
+        set guifont=Droid\ Sans\ Mono
     endif
 endif
