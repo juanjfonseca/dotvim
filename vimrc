@@ -1,7 +1,11 @@
 " vim: nowrap fdm=marker
 
 " Vim Plug plugin manager {{{1
-call plug#begin('~/.vim/bundle')
+if has("win32")
+    call plug#begin('~/vimfiles/bundle')
+else
+    call plug#begin('~/.vim/bundle')
+endif
 
 Plug 'bronson/vim-visual-star-search'
 Plug 'ctrlpvim/ctrlp.vim'
