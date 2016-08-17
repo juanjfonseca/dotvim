@@ -1,12 +1,26 @@
 " vim: nowrap fdm=marker
 
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
+" Vim Plug plugin manager {{{1
+" call plug#begin('~/.vim/bundle')
+
+" Plug 'bronson/vim-visual-star-search'
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'jpo/vim-railscasts-theme'
+" Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-sensible'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-scripts/Tagbar'
+" Plug 'wolfpython/cscope_map.vim'
+
+" call plug#end()
 
 " load plugins that ship with vim {{{1
 runtime macros/matchit.vim
 runtime ftplugin/man.vim
+
+" Use the space key as our leader. Put this near the top of your vimrc
+let mapleader = "\<Space>"
 
 " Autocommands {{{1
 if has("autocmd")
@@ -19,8 +33,11 @@ if has("autocmd")
     augroup END
 endif
 
+" Bind `q` to close the buffer for help files
+autocmd Filetype help nnoremap <buffer> q :q<CR>
+
 " Preferences {{{1
-" Indentation {{{2
+" Indentation
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -35,54 +52,49 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp
 
 " Mappings {{{1
-" Quick toggles {{{2
+" Quick toggles
 nmap <silent> <leader>s :set spell!<CR>
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <CR> :silent :nohlsearch<CR>
 nmap <silent> <leader>h :set hlsearch!<CR>
 
-" Commands to quickly set >1 option in one go {{{2
+" Commands to quickly set >1 option in one go
 command! -nargs=* Wrap set wrap linebreak nolist
 command! -nargs=* Maxsize set columns=1000 lines=1000
 
-" File opening {{{2
+" File opening
 " Shortcut for opening file in same directory as current file
-cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+cmap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Switch current buffer with # buffer
-nnoremap <leader><leader> <c-^>
+nmap <leader><leader> <c-^>
 
-" Move around splits with <c-hjkl> {{{2
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
-" Vimrc maintenance {{{2
+" Vimrc maintenance
 nmap <silent> <leader>v :e $MYVIMRC<CR>
+nmap <silent> <leader>so :source $MYVIMRC<CR>
 
-" Save modified file {{{2
-inoremap <c-s> <ESC>:w<CR>
-noremap <c-s> <ESC>:w<CR>
+" Save modified file
+imap <c-s> <ESC>:w<CR>
+map <c-s> <ESC>:w<CR>
 
 " Plugin setup {{{1
-" Tagbar {{{2
-nnoremap <silent> <leader>t :TagbarToggle<CR>
+" Tagbar
+nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_autoclose = 1 " Automatically close window when jumping to a tag.
 let g:tagbar_width = 70
 let g:tagbar_autoshowtag = 1 " Open the current tags fold to highlight the tag.
 
-" CtrlP {{{2
-nnoremap <leader>f :<C-u>CtrlP<space>
-nnoremap <silent> <leader>m :<C-u>CtrlPMRU<cr>
-nnoremap <silent> <leader>b :<C-u>CtrlPBuffer<cr>
+" CtrlP
+nmap <leader>f :<C-u>CtrlP<space>
+nmap <silent> <leader>m :<C-u>CtrlPMRU<cr>
+nmap <silent> <leader>b :<C-u>CtrlPBuffer<cr>
 
-" Cscope {{{2
+" Cscope
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 " Next occurence
-nnoremap <leader>n :cn<CR>
+nmap <leader>n :cn<CR>
 " Previous occurence
-nnoremap <leader>p :cp<CR>
+nmap <leader>p :cp<CR>
 
 " Fix constant spelling mistakes {{{1
 iab teh       the
@@ -116,14 +128,7 @@ iab Fone      Phone
 iab wiht      with
 
 " Custom commands {{{1
-" Run OS command {{{2
-function! RunSystemCall(systemcall)
-    let output = system(a:systemcall)
-    let output = substitute(output, "\n", '', 'g')
-    return output
-endfunction
-
-" Clean current buffer {{{2
+" Clean current buffer
 function! Cleanup()
     set ff=unix
     %s/\s*$//
@@ -133,25 +138,6 @@ function! Cleanup()
 endfunction
 map <silent> <F2> :call Cleanup()<CR>
 map! <silent> <F2> :call Cleanup()<CR>
-
-" Load Checkedout Congo Files and tags File {{{2
-function! LoadCongo()
-    cd $CONGO_VIEW//spec_apps/Congo/Source/Host
-    args `cleartool lsprivate -co -short`
-    set tags=$CONGO_VIEW//spec_apps/Congo/Source/tags
-    bd 1
-endfunction
-
-" Load Quickfix files into args {{{2
-command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
-function! QuickfixFilenames()
-  " Building a hash ensures we get each buffer only once
-  let buffer_numbers = {}
-  for quickfix_item in getqflist()
-    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
-  endfor
-  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
-endfunction
 
 " Colorscheme {{{1
 colorscheme railscasts
@@ -173,7 +159,7 @@ if has("gui_running")
     set guicursor+=i-ci:ver25-Cursor
     set guicursor+=r-cr:hor20-Cursor
     set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-    
+
     if has("win32")
         set guifont=Lucida_Console
     else

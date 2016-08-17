@@ -3,7 +3,8 @@
 tags
 
 # directories
+bundle
+doc
 keymap
 spell
 tmp
-doc
