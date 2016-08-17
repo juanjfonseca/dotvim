@@ -1,24 +1,21 @@
 " vim: nowrap fdm=marker
 
 " Vim Plug plugin manager {{{1
-" call plug#begin('~/.vim/bundle')
+call plug#begin('~/.vim/bundle')
 
-" Plug 'bronson/vim-visual-star-search'
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'jpo/vim-railscasts-theme'
-" Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-sensible'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-scripts/Tagbar'
-" Plug 'wolfpython/cscope_map.vim'
+Plug 'bronson/vim-visual-star-search'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jpo/vim-railscasts-theme'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/Tagbar'
+Plug 'wolfpython/cscope_map.vim'
 
-" call plug#end()
+call plug#end()
 
-" load plugins that ship with vim {{{1
-runtime macros/matchit.vim
-runtime ftplugin/man.vim
-
+" Map leader key {{{1
 " Use the space key as our leader. Put this near the top of your vimrc
 let mapleader = "\<Space>"
 
@@ -38,29 +35,25 @@ autocmd Filetype help nnoremap <buffer> q :q<CR>
 
 " Preferences {{{1
 " Indentation
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
 set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
 " Display line numbers
 set relativenumber
 
-" Store temporary files in a central spot {{{2
+" Store temporary files in a central spot
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp
 
 " Mappings {{{1
 " Quick toggles
-nmap <silent> <leader>s :set spell!<CR>
-nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <CR> :silent :nohlsearch<CR>
 nmap <silent> <leader>h :set hlsearch!<CR>
-
-" Commands to quickly set >1 option in one go
-command! -nargs=* Wrap set wrap linebreak nolist
-command! -nargs=* Maxsize set columns=1000 lines=1000
+nmap <silent> <leader>l :set list!<CR>
+nmap <silent> <leader>s :set spell!<CR>
 
 " File opening
 " Shortcut for opening file in same directory as current file
@@ -81,8 +74,8 @@ map <c-s> <ESC>:w<CR>
 " Tagbar
 nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_autoclose = 1 " Automatically close window when jumping to a tag.
-let g:tagbar_width = 70
 let g:tagbar_autoshowtag = 1 " Open the current tags fold to highlight the tag.
+let g:tagbar_width = 70
 
 " CtrlP
 nmap <leader>f :<C-u>CtrlP<space>
@@ -91,10 +84,8 @@ nmap <silent> <leader>b :<C-u>CtrlPBuffer<cr>
 
 " Cscope
 set cscopequickfix=s-,c-,d-,i-,t-,e-
-" Next occurence
-nmap <leader>n :cn<CR>
-" Previous occurence
-nmap <leader>p :cp<CR>
+nmap <leader>n :cn<CR>  " Next occurence
+nmap <leader>p :cp<CR>  " Previous occurence
 
 " Fix constant spelling mistakes {{{1
 iab teh       the
