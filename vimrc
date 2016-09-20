@@ -16,6 +16,7 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Tagbar'
 Plug 'wolfpython/cscope_map.vim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
