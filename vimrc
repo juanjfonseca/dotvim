@@ -16,6 +16,7 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Tagbar'
 Plug 'wolfpython/cscope_map.vim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -135,7 +136,8 @@ map <silent> <F2> :call Cleanup()<CR>
 map! <silent> <F2> :call Cleanup()<CR>
 
 " Colorscheme {{{1
-colorscheme railscasts
+colorscheme solarized
+set background=dark
 
 " GVIM only {{{1
 if has("gui_running")
