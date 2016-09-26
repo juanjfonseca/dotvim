@@ -55,8 +55,6 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp
 
 " Mappings {{{1
 " Quick toggles
-nmap <silent> <CR> :silent :nohlsearch<CR>
-nmap <silent> <leader>h :set hlsearch!<CR>
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <leader>s :set spell!<CR>
 
@@ -136,8 +134,7 @@ map <silent> <F2> :call Cleanup()<CR>
 map! <silent> <F2> :call Cleanup()<CR>
 
 " Colorscheme {{{1
-colorscheme solarized
-set background=dark
+colorscheme railscasts
 
 " GVIM only {{{1
 if has("gui_running")
