@@ -8,7 +8,6 @@ else
 endif
 
 Plug 'bronson/vim-visual-star-search'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -133,7 +132,6 @@ endfunction
 map <silent> <F2> :call Cleanup()<CR>
 map! <silent> <F2> :call Cleanup()<CR>
 
-" Colorscheme {{{1
 colorscheme railscasts
 
 " GVIM only {{{1
@@ -154,9 +152,13 @@ if has("gui_running")
     set guicursor+=r-cr:hor20-Cursor
     set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
+    colorscheme solarized
+
     if has("win32")
         set guifont=Lucida_Console
     else
         set guifont=Droid\ Sans\ Mono
     endif
+else
+    colorscheme railscasts
 endif
