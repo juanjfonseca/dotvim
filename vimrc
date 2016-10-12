@@ -132,8 +132,6 @@ endfunction
 map <silent> <F2> :call Cleanup()<CR>
 map! <silent> <F2> :call Cleanup()<CR>
 
-colorscheme railscasts
-
 " GVIM only {{{1
 if has("gui_running")
     " Do not use modal alert dialogs! (Prefer Vim style prompt.)
@@ -153,6 +151,7 @@ if has("gui_running")
     set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
     colorscheme solarized
+    set background=dark
 
     if has("win32")
         set guifont=Lucida_Console
