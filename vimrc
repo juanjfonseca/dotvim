@@ -7,6 +7,7 @@ else
     call plug#begin('~/.vim/bundle')
 endif
 
+Plug 'sonjapeterson/1989.vim'
 Plug 'bronson/vim-visual-star-search'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'tpope/vim-commentary'
