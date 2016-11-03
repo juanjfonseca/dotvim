@@ -79,12 +79,7 @@ map <c-s> <ESC>:w<CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_autoclose = 1 " Automatically close window when jumping to a tag.
 let g:tagbar_autoshowtag = 1 " Open the current tags fold to highlight the tag.
-let g:tagbar_width = 70
-
-" CtrlP
-nmap <leader>f :<C-u>CtrlP<space>
-nmap <silent> <leader>m :<C-u>CtrlPMRU<cr>
-nmap <silent> <leader>b :<C-u>CtrlPBuffer<cr>
+let g:tagbar_width = 90
 
 " Cscope
 set cscopequickfix=s-,c-,d-,i-,t-,e-
