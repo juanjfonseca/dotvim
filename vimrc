@@ -46,6 +46,7 @@ set tabstop=4
 
 " Display line numbers
 set relativenumber
+set number
 
 " Store temporary files in a central spot
 set backup
@@ -86,8 +87,8 @@ nmap <silent> <leader>b :<C-u>CtrlPBuffer<cr>
 
 " Cscope
 set cscopequickfix=s-,c-,d-,i-,t-,e-
-nmap <leader>n :cn<CR>  " Next occurence
-nmap <leader>p :cp<CR>  " Previous occurence
+nmap <leader>n :cn<CR>
+nmap <leader>p :cp<CR>
 
 " Fix constant spelling mistakes {{{1
 iab teh       the
