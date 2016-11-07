@@ -7,6 +7,7 @@ else
     call plug#begin('~/.vim/bundle')
 endif
 
+Plug 'kien/ctrlp.vim'
 Plug 'sonjapeterson/1989.vim'
 Plug 'bronson/vim-visual-star-search'
 Plug 'jpo/vim-railscasts-theme'
@@ -85,6 +86,10 @@ let g:tagbar_width = 90
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 nmap <leader>n :cn<CR>
 nmap <leader>p :cp<CR>
+
+" CtrlP
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
 
 " Fix constant spelling mistakes {{{1
 iab teh       the
