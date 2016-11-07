@@ -156,7 +156,7 @@ if has("gui_running")
     set background=dark
 
     if has("win32")
-        set guifont=Lucida_Console
+        set guifont=Lucida_Console:h10:cANSI:qDRAFT
     else
         set guifont=Droid\ Sans\ Mono
     endif
