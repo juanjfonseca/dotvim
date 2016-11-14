@@ -135,6 +135,9 @@ endfunction
 map <silent> <F2> :call Cleanup()<CR>
 map! <silent> <F2> :call Cleanup()<CR>
 
+" Colorscheme {{{1
+colorscheme railscasts
+
 " GVIM only {{{1
 if has("gui_running")
     " Do not use modal alert dialogs! (Prefer Vim style prompt.)
@@ -161,6 +164,4 @@ if has("gui_running")
     else
         set guifont=Droid\ Sans\ Mono
     endif
-else
-    colorscheme railscasts
 endif
