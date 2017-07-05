@@ -1,2 +1,2 @@
 Installation:
-    Run :PlugInstall to install plugins
+    Run :call minpac#update() to install plugins

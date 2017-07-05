@@ -1,25 +1,19 @@
 " vim: nowrap fdm=marker
 
-" Vim Plug plugin manager {{{1
-if has("win32")
-    call plug#begin('~/vimfiles/bundle')
-else
-    call plug#begin('~/.vim/bundle')
-endif
+" Vim minpac plugin manager {{{1
+packadd minpac
+call minpac#init()
 
-Plug 'kien/ctrlp.vim'
-Plug 'sonjapeterson/1989.vim'
-Plug 'bronson/vim-visual-star-search'
-Plug 'jpo/vim-railscasts-theme'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-scripts/Tagbar'
-Plug 'wolfpython/cscope_map.vim'
-Plug 'altercation/vim-colors-solarized'
-
-call plug#end()
+call minpac#add('kien/ctrlp.vim')
+call minpac#add('sonjapeterson/1989.vim')
+call minpac#add('bronson/vim-visual-star-search')
+call minpac#add('jpo/vim-railscasts-theme')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-sensible')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-scripts/Tagbar')
+call minpac#add('wolfpython/cscope_map.vim')
 
 " Map leader key {{{1
 " Use the space key as our leader. Put this near the top of your vimrc
@@ -155,7 +149,6 @@ if has("gui_running")
     set guicursor+=r-cr:hor20-Cursor
     set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
-    colorscheme solarized
     set background=dark
 
     if has("win32")
