@@ -7,17 +7,17 @@ else
     call plug#begin('~/.vim/bundle')
 endif
 
-Plug 'kien/ctrlp.vim'
-Plug 'sonjapeterson/1989.vim'
+Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-visual-star-search'
 Plug 'jpo/vim-railscasts-theme'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'sonjapeterson/1989.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Tagbar'
 Plug 'wolfpython/cscope_map.vim'
-Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -76,20 +76,21 @@ imap <c-s> <ESC>:w<CR>
 map <c-s> <ESC>:w<CR>
 
 " Plugin setup {{{1
+" FZF
+nnoremap <C-p> :<C-u>FZF<CR>
+
 " Tagbar
 nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_autoclose = 1 " Automatically close window when jumping to a tag.
 let g:tagbar_autoshowtag = 1 " Open the current tags fold to highlight the tag.
 let g:tagbar_width = 90
+let g:tagbar_ctags_bin = '/home/hvxt37/bin/linux/ctags-exuberant'
 
 " Cscope
+set csprg=/home/hvxt37/bin/linux/cscope
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 nmap <leader>n :cn<CR>
 nmap <leader>p :cp<CR>
-
-" CtrlP
-let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=40
 
 " Fix constant spelling mistakes {{{1
 iab teh       the
