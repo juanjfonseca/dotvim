@@ -4,7 +4,6 @@
 packadd minpac
 call minpac#init()
 
-call minpac#add('kien/ctrlp.vim')
 call minpac#add('sonjapeterson/1989.vim')
 call minpac#add('bronson/vim-visual-star-search')
 call minpac#add('jpo/vim-railscasts-theme')
@@ -14,6 +13,8 @@ call minpac#add('tpope/vim-sensible')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-scripts/Tagbar')
 call minpac#add('wolfpython/cscope_map.vim')
+call minpac#add('octol/vim-cpp-enhanced-highlight')
+call minpac#add('Townk/vim-autoclose')
 
 " Map leader key {{{1
 " Use the space key as our leader. Put this near the top of your vimrc
@@ -35,6 +36,7 @@ autocmd Filetype help nnoremap <buffer> q :q<CR>
 
 " Preferences {{{1
 " Indentation
+set cursorline
 set expandtab
 set shiftwidth=4
 set softtabstop=4
@@ -43,6 +45,10 @@ set tabstop=4
 " Display line numbers
 set relativenumber
 set number
+
+" Search settings
+set ignorecase
+set smartcase
 
 " Store temporary files in a central spot
 set backup
@@ -69,7 +75,16 @@ nmap <silent> <leader>so :source $MYVIMRC<CR>
 imap <c-s> <ESC>:w<CR>
 map <c-s> <ESC>:w<CR>
 
+" Ignore white space
+nmap <silent><leader>w :set diffopt+=iwhite<CR>
+
+" Build Unit Test
+nmap <silent><leader>u :make test -j 8<CR>
+
 " Plugin setup {{{1
+" FZF
+nnoremap <C-p> :<C-u>FZF<CR>
+
 " Tagbar
 nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_autoclose = 1 " Automatically close window when jumping to a tag.
@@ -81,9 +96,8 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 nmap <leader>n :cn<CR>
 nmap <leader>p :cp<CR>
 
-" CtrlP
-let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=40
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Fix constant spelling mistakes {{{1
 iab teh       the
@@ -124,6 +138,9 @@ function! Cleanup()
     ''
     %s/\t/    /g
     ''
+
+
+
 endfunction
 map <silent> <F2> :call Cleanup()<CR>
 map! <silent> <F2> :call Cleanup()<CR>
