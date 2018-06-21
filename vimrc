@@ -15,6 +15,7 @@ call minpac#add('vim-scripts/Tagbar')
 call minpac#add('wolfpython/cscope_map.vim')
 call minpac#add('octol/vim-cpp-enhanced-highlight')
 call minpac#add('Townk/vim-autoclose')
+call minpac#add('altercation/vim-colors-solarized')
 
 " Map leader key {{{1
 " Use the space key as our leader. Put this near the top of your vimrc
@@ -145,11 +146,9 @@ endfunction
 map <silent> <F2> :call Cleanup()<CR>
 map! <silent> <F2> :call Cleanup()<CR>
 
-" Colorscheme {{{1
-colorscheme railscasts
-
 " GVIM only {{{1
 if has("gui_running")
+    colorscheme solarized
     " Do not use modal alert dialogs! (Prefer Vim style prompt.)
     " http://stackoverflow.com/questions/4193654/using-vim-warning-style-in-gvim
     set guioptions+=c
@@ -173,4 +172,6 @@ if has("gui_running")
     else
         set guifont=Droid\ Sans\ Mono
     endif
+else
+    colorscheme railscasts
 endif
