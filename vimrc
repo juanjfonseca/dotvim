@@ -97,6 +97,9 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <leader>s :set spell!<CR>
 
+" Remove highlights from the last search
+nmap <silent> <leader>h :noh<CR>
+
 " Switch current buffer with # buffer
 nmap <leader><leader> <c-^>
 
