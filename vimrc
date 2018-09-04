@@ -86,6 +86,7 @@ set confirm " Display a confirmation dialog when closing an unsaved file
 set nomodeline " Ignore file’s mode lines; use vimrc configurations instead
 set nrformats-=octal " Interpret octal as decimal when incrementing numbers
 set spell " Enable spellchecking
+set spell spelllang=en_us
 
 " Store temporary files in a central spot
 set backup
@@ -93,10 +94,6 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp
 
 " Mappings {{{1
-" Quick toggles
-nmap <silent> <leader>l :set list!<CR>
-nmap <silent> <leader>s :set spell!<CR>
-
 " Remove highlights from the last search
 nmap <silent> <leader>h :noh<CR>
 
@@ -127,13 +124,19 @@ let g:tagbar_autoclose = 1 " Automatically close window when jumping to a tag.
 let g:tagbar_autoshowtag = 1 " Open the current tags fold to highlight the tag.
 let g:tagbar_width = 90
 
-" Cscope
-set cscopequickfix=s-,c-,d-,i-,t-,e-
+" Quickfix
 nmap <leader>n :cn<CR>
 nmap <leader>p :cp<CR>
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
+" Cscope
+set cscopequickfix=
+set cscopetag 
+nmap <leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
+nmap <leader>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
+nmap <leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
+nmap <leader>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
+nmap <leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+nmap <leader>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 
 " Custom commands {{{1
 " Clean current buffer
