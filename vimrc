@@ -2,7 +2,6 @@
 packadd minpac
 call minpac#init()
 
-call minpac#add('bronson/vim-visual-star-search')
 call minpac#add('jpo/vim-railscasts-theme')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
@@ -15,20 +14,6 @@ call minpac#add('altercation/vim-colors-solarized')
 " Map leader key {{{1
 " Use the space key as our leader. Put this near the top of your vimrc
 let mapleader = "\<Space>"
-
-" Autocommands {{{1
-if has("autocmd")
-    augroup vimrcEx
-        au!
-        autocmd BufReadPost *
-                    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-                    \   exe "normal! g`\"" |
-                    \ endif
-    augroup END
-endif
-
-" Bind `q` to close the buffer for help files
-autocmd Filetype help nnoremap <buffer> q :q<CR>
 
 " Preferences {{{1
 " General configuration options:
@@ -70,7 +55,6 @@ set nowrap " Don’t wrap lines
 
 " Search options:
 set incsearch " Find the next match as we type the search
-set hlsearch " Highlight searches by default
 set ignorecase " Ignore case when searching . . 
 set smartcase " . . . unless you type a capital
 
@@ -96,6 +80,9 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp
 " Mappings {{{1
 " Remove highlights from the last search
 nmap <silent> <leader>h :noh<CR>
+
+" List all occurrences in the current file
+nmap <silent> <F12> "zyiw :exe "global/".@z."/print"<CR>
 
 " Switch current buffer with # buffer
 nmap <leader><leader> <c-^>
