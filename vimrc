@@ -1,18 +1,13 @@
-" vim: nowrap fdm=marker
-
 " Vim minpac plugin manager {{{1
 packadd minpac
 call minpac#init()
 
-call minpac#add('sonjapeterson/1989.vim')
 call minpac#add('bronson/vim-visual-star-search')
 call minpac#add('jpo/vim-railscasts-theme')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-sensible')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-scripts/Tagbar')
-call minpac#add('wolfpython/cscope_map.vim')
 call minpac#add('octol/vim-cpp-enhanced-highlight')
 call minpac#add('Townk/vim-autoclose')
 call minpac#add('altercation/vim-colors-solarized')
@@ -36,20 +31,61 @@ endif
 autocmd Filetype help nnoremap <buffer> q :q<CR>
 
 " Preferences {{{1
-" Indentation
-set cursorline
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+" General configuration options:
+set nocompatible " Use Vim settings, rather then Vi settings
+set backspace=indent,eol,start " Allow backspacing over indention, line breaks and insertion start
+set history=1000 " Set bigger history of executed commands
+set showcmd " Show incomplete commands at the bottom
+set showmode " Show current mode at the bottom
+set autoread " Automatically re-read files if unmodified inside Vim
+set hidden " Manage multiple buffers effectively
 
-" Display line numbers
-set relativenumber
-set number
+" User Interface Options
+set laststatus=2 " Always display the status bar
+set ruler " Always show cursor position
+set wildmenu " Display command line’s tab complete options as a menu
+set tabpagemax=40 " Maximum number of tab pages that can be opened from the command line
+set cursorline " Highlight the line currently under cursor
+:highlight cursorline guibg=lightblue ctermbg=lightgrey
+set number " Show line numbers on the sidebar
+set relativenumber " Show line number on the current line and relative numbers on all other lines
+set noerrorbells " Disable beep on errors
+set visualbell " Flash the screen instead of beeping on errors
+set mouse=a " Enable mouse for scrolling and resizing
+set title " Set the window’s title, reflecting the file currently being edited
 
-" Search settings
-set ignorecase
-set smartcase
+" Swap and backup file options
+set noswapfile
+set nobackup
+set nowb
+
+" Indentation options:
+set autoindent " New lines inherit the indentation of previous lines
+filetype plugin indent on " Smart auto indentation (instead of old smartindent option)
+set softtabstop=4 " Indent by 2 spaces when hitting tab 
+set tabstop=4 " Show existing tab with 4 spaces width
+set shiftwidth=4 " When indenting with ‘>’, use 2 spaces width
+set expandtab " On pressing tab, insert 4 spaces
+set nowrap " Don’t wrap lines
+
+" Search options:
+set incsearch " Find the next match as we type the search
+set hlsearch " Highlight searches by default
+set ignorecase " Ignore case when searching . . 
+set smartcase " . . . unless you type a capital
+
+" Text rendering options:
+set encoding=utf-8 " Use an encoding that supports Unicode
+set linebreak " Wrap lines at convenient points, avoid wrapping a line in the middle of a word
+set scrolloff=3 " The number of screen lines to keep above and below the cursor
+set sidescrolloff=5 " The number of screen columns to keep to the left and right of the cursor
+syntax enable " Enable syntax highlighting
+
+" Miscellaneous Options:
+set confirm " Display a confirmation dialog when closing an unsaved file
+set nomodeline " Ignore file’s mode lines; use vimrc configurations instead
+set nrformats-=octal " Interpret octal as decimal when incrementing numbers
+set spell " Enable spellchecking
 
 " Store temporary files in a central spot
 set backup
@@ -60,10 +96,6 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp
 " Quick toggles
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <leader>s :set spell!<CR>
-
-" File opening
-" Shortcut for opening file in same directory as current file
-cmap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Switch current buffer with # buffer
 nmap <leader><leader> <c-^>
@@ -100,37 +132,6 @@ nmap <leader>p :cp<CR>
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
-" Fix constant spelling mistakes {{{1
-iab teh       the
-iab Teh       The
-iab taht      that
-iab Taht      That
-iab alos      also
-iab Alos      Also
-iab aslo      also
-iab Aslo      Also
-iab becuase   because
-iab Becuase   Because
-iab bianry    binary
-iab Bianry    Binary
-iab bianries  binaries
-iab Bianries  Binaries
-iab charcter  character
-iab Charcter  Character
-iab charcters characters
-iab Charcters Characters
-iab exmaple   example
-iab Exmaple   Example
-iab exmaples  examples
-iab Exmaples  Examples
-iab shoudl    should
-iab Shoudl    Should
-iab seperate  separate
-iab Seperate  Separate
-iab fone      phone
-iab Fone      Phone
-iab wiht      with
-
 " Custom commands {{{1
 " Clean current buffer
 function! Cleanup()
@@ -139,9 +140,6 @@ function! Cleanup()
     ''
     %s/\t/    /g
     ''
-
-
-
 endfunction
 map <silent> <F2> :call Cleanup()<CR>
 map! <silent> <F2> :call Cleanup()<CR>
@@ -157,7 +155,6 @@ if has("gui_running")
     " Do not use the toolbar
     set guioptions-=T
     set guioptions-=m
-
     set guicursor=n-v-c:block-Cursor-blinkon0
     set guicursor+=ve:ver35-Cursor
     set guicursor+=o:hor50-Cursor
