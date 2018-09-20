@@ -33,7 +33,6 @@ set tabpagemax=40 " Maximum number of tab pages that can be opened from the comm
 set cursorline " Highlight the line currently under cursor
 :highlight cursorline guibg=lightblue ctermbg=lightgrey
 set number " Show line numbers on the sidebar
-set relativenumber " Show line number on the current line and relative numbers on all other lines
 set noerrorbells " Disable beep on errors
 set visualbell " Flash the screen instead of beeping on errors
 set mouse=a " Enable mouse for scrolling and re-sizing
@@ -110,6 +109,7 @@ nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_autoclose = 1 " Automatically close window when jumping to a tag.
 let g:tagbar_autoshowtag = 1 " Open the current tags fold to highlight the tag.
 let g:tagbar_width = 90
+let g:tagbar_sort = 0
 
 " Quickfix
 nmap <leader>n :cn<CR>
