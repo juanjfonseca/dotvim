@@ -56,6 +56,7 @@ set nowrap " Don’t wrap lines
 set incsearch " Find the next match as we type the search
 set ignorecase " Ignore case when searching . . 
 set smartcase " . . . unless you type a capital
+set nowrapscan " Stop search at the end of file
 
 " Text rendering options:
 set encoding=utf-8 " Use an encoding that supports Unicode
